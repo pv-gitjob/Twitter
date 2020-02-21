@@ -182,24 +182,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Profile Stuff" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n5w-al-bPn">
-                                <rect key="frame" x="20" y="270" width="374" height="592"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n5w-al-bPn">
+                                <rect key="frame" x="20" y="310" width="374" height="552"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PmU-YC-HWS">
-                                <rect key="frame" x="20" y="88" width="374" height="174"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PmU-YC-HWS">
+                                <rect key="frame" x="20" y="88" width="374" height="114"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uy2-YG-SkF">
-                                <rect key="frame" x="20" y="132" width="142" height="130"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uy2-YG-SkF">
+                                <rect key="frame" x="126" y="172" width="142" height="130"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="PmU-YC-HWS" firstAttribute="top" secondItem="Oi2-ma-8sC" secondAttribute="top" id="6Od-RI-3eA"/>
+                            <constraint firstItem="PmU-YC-HWS" firstAttribute="centerX" secondItem="Oi2-ma-8sC" secondAttribute="centerX" id="NQH-Ai-FaZ"/>
+                            <constraint firstItem="Uy2-YG-SkF" firstAttribute="top" secondItem="Oi2-ma-8sC" secondAttribute="top" constant="84" id="OBn-gP-Ht6"/>
+                            <constraint firstItem="Uy2-YG-SkF" firstAttribute="centerX" secondItem="Oi2-ma-8sC" secondAttribute="centerX" id="cj9-5R-I9x"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Oi2-ma-8sC"/>
                     </view>
                     <navigationItem key="navigationItem" id="M5s-Ua-NLC"/>

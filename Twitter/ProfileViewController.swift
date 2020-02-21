@@ -16,12 +16,17 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setFields()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "userLoggedIn") == true {
+            setFields()
+        }
     }
     
     func setFields() {
-
-        let myUrl = "https://api.twitter.com/1.1/users/show.json?screen_name=" + getScreenName()
+        let myUrl = "https://api.twitter.com/1.1/users/show.json?screen_name=Praveen31832509"
+        //let myUrl = "https://api.twitter.com/1.1/users/show.json?screen_name=" + getScreenName()
         
         TwitterAPICaller.client?.getProfile(url: myUrl, success: { (user: NSDictionary) in
 
@@ -37,10 +42,29 @@ class ProfileViewController: UIViewController {
                 self.bannerImageView.image = UIImage(data: imageData2)
             }
 
+            var userInformation = ""
+            let name = user["name"] as? String ?? ""
+            let screenName = user["screen_name"] as? String ?? ""
+            let location = user["location"] as? String ?? ""
+            let url = user["url"] as? String ?? ""
+            let description = user["description"] as? String ?? ""
+            let verified = user["verified"] as? Bool ?? false
+            let followers = user["followers_count"] as? Int ?? 0
+            let friends = user["friends_count"] as? Int ?? 0
+            let favorites = user["favorites_count"] as? Int ?? 0
+            let statuses = user["statuses_count"] as? Int ?? 0
+            let created = user["created_at"] as? String ?? ""
+            
+            userInformation += "Name: " + name + "\nScreenName: " + screenName + "\nLocation: " + location
+                            + "\nUrl: " + url + "\nVerified: " + String(verified) + "\nFollowers: " + String(followers) + "\nFriends: " + String(friends)
+                            + "\nFavorites: " + String(favorites) + "\nStatuses: " + String(statuses) + "\nCreated: " + created + "\nDescription: " + description
+            
+            self.ProfileTextView.text = userInformation
+            
         }, failure: { (Error) in
             self.dismiss(animated: true, completion: nil)
         })
-        
+
         
     }
     
