@@ -8,14 +8,25 @@
 
 import UIKit
 
-class TweetViewController: UIViewController {
-
+class TweetViewController: UIViewController, UITextViewDelegate {
+    
+    @IBOutlet weak var wordCountLabel: UILabel!
+    @IBOutlet weak var tweetTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tweetTextView.becomeFirstResponder()
+        wordCountLabel.text = "Characters left: 140"
     }
     
-    @IBOutlet weak var tweetTextView: UITextView!
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if range.length + range.location > tweetTextView.text.count {
+            return false
+        }
+        let newLength = tweetTextView.text.count + text.count - range.length
+        wordCountLabel.text = "Characters left: " + String(140 - newLength)
+        return newLength <= 140
+    }
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)

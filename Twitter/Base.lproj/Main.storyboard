@@ -154,17 +154,64 @@
                                 <action selector="onLogout:" destination="M0r-Ba-zXJ" id="fCL-cH-36p"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="UiK-Qp-fs4">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="c5w-Xa-rtb" kind="presentation" id="PeW-wY-pUO"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Tweet" id="UiK-Qp-fs4">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="c5w-Xa-rtb" kind="presentation" id="PeW-wY-pUO"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Profile" id="GMY-B2-KZ2">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="Zh7-d5-IDd" kind="show" id="zLK-UY-X9l"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XJU-M8-U9E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-559.4202898550725" y="-120.53571428571428"/>
+        </scene>
+        <!--ProfileViewController-->
+        <scene sceneID="VBA-GZ-PIX">
+            <objects>
+                <viewController title="ProfileViewController" id="Zh7-d5-IDd" customClass="ProfileViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2ze-LL-RUl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Profile Stuff" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n5w-al-bPn">
+                                <rect key="frame" x="20" y="270" width="374" height="592"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PmU-YC-HWS">
+                                <rect key="frame" x="20" y="88" width="374" height="174"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uy2-YG-SkF">
+                                <rect key="frame" x="20" y="132" width="142" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Oi2-ma-8sC"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="M5s-Ua-NLC"/>
+                    <connections>
+                        <outlet property="ProfilePictureImageView" destination="Uy2-YG-SkF" id="Mho-oc-TYf"/>
+                        <outlet property="ProfileTextView" destination="n5w-al-bPn" id="KhD-kg-zAC"/>
+                        <outlet property="bannerImageView" destination="PmU-YC-HWS" id="A5M-b6-tJx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cg0-Ln-18U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-231.8840579710145" y="606.69642857142856"/>
         </scene>
         <!--Tweet View Controller-->
         <scene sceneID="ZPw-gX-ZJD">
@@ -180,13 +227,24 @@
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Txz-fC-6Zo" id="NrR-g6-jvn"/>
+                                </connections>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSz-UP-Gkq">
+                                <rect key="frame" x="248" y="841" width="146" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Uk5-18-QfE" firstAttribute="top" secondItem="pN6-JJ-reN" secondAttribute="top" id="5er-nZ-FbR"/>
                             <constraint firstItem="Uk5-18-QfE" firstAttribute="centerX" secondItem="1J4-Ky-L4p" secondAttribute="centerX" id="N33-rd-kGD"/>
+                            <constraint firstItem="pN6-JJ-reN" firstAttribute="bottom" secondItem="fSz-UP-Gkq" secondAttribute="bottom" id="OmX-OK-mO8"/>
                             <constraint firstItem="Uk5-18-QfE" firstAttribute="bottom" secondItem="pN6-JJ-reN" secondAttribute="bottom" id="WhE-CS-ef5"/>
+                            <constraint firstItem="pN6-JJ-reN" firstAttribute="trailing" secondItem="fSz-UP-Gkq" secondAttribute="trailing" constant="20" id="bR7-YU-4eD"/>
                             <constraint firstItem="Uk5-18-QfE" firstAttribute="leading" secondItem="pN6-JJ-reN" secondAttribute="leading" id="bTY-uz-cJa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pN6-JJ-reN"/>
@@ -205,11 +263,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tweetTextView" destination="Uk5-18-QfE" id="95X-X0-o4M"/>
+                        <outlet property="wordCountLabel" destination="fSz-UP-Gkq" id="Ufg-SR-IU1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWV-Wv-2eQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1045.5999999999999" y="-120.08995502248877"/>
+            <point key="canvasLocation" x="1044.9275362318842" y="-120.53571428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qMQ-Db-PZy">
